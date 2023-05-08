@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860210445225",
+    "project_id": "course-guide-61927",
+    "storage_bucket": "course-guide-61927.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860210445225:android:a82d6566056b6c04d162b8",
+        "android_client_info": {
+          "package_name": "com.example.course_guide_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860210445225-rist4ikjj91nrhnldboi994qsr5ml4gr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdFaFpeH-CQ9eQjgU5MhPVcX_lNRE7V5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860210445225-rist4ikjj91nrhnldboi994qsr5ml4gr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
