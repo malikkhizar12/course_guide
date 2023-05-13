@@ -1,4 +1,5 @@
 # course_guide_app
+#change to   sdk: '>=2.19.6 <3.0.0'
 
 A new Flutter project.
 

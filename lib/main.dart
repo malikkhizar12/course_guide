@@ -1,20 +1,23 @@
 import 'package:course_guide_app/firebase_options.dart';
-import 'package:course_guide_app/src/featues/authentications/Screens/dashBoard.dart';
-import 'package:course_guide_app/src/featues/authentications/Screens/login.dart';
-import 'package:course_guide_app/src/featues/authentications/Screens/signup.dart';
-import 'package:course_guide_app/src/repository/authentication_repo/authentication_repo.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:course_guide_app/src/featues/authentications/Screens/splashScreen.dart';
+import 'package:get_storage/get_storage.dart';
+
+import 'core/binding.dart';
+import 'core/pages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((value) => Get.put(Authentication_repo()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await GetStorage.init();
 
-  runApp(MyApp());
-}
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) => runApp(MyApp()));}
 
 
 class MyApp extends StatelessWidget {
@@ -22,14 +25,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "CourseGuide",
-      routes: {
-        '/signup': (context) => SignupPage(),
-        '/login': (context) => login(),
-        '/dashBoard': (context) => dashBoard(),
-
-      },
+      initialRoute: "/",
+      getPages: Pages.all,
       debugShowCheckedModeBanner: false,
-      home: splashScreen(),
     );
   }
 }
