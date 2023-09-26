@@ -4,7 +4,7 @@ String? nameValidator(String? value) {
   if (value!.isEmpty) {
     return "Please enter your name";
   }
-  final regex = RegExp(r'^[a-zA-Z]+$');
+  final regex = RegExp(r'^[a-zA-Z ]+$');
   if (!regex.hasMatch(value)) {
     return "Only alphabets are allowed";
   }

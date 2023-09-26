@@ -1,3 +1,4 @@
+import 'package:course_guide/screens/forgotpassword.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -56,7 +57,9 @@ class Login extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed('/ForgotPassword');
+                          },
                           child: const Text("Forgot Password?"),
                         ),
                       ),

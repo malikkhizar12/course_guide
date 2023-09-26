@@ -1,3 +1,5 @@
+import 'package:course_guide/screens/CourseDetailsPage.dart';
+import 'package:course_guide/screens/forgotpassword.dart';
 import 'package:course_guide/screens/preferences.dart';
 import 'package:course_guide/screens/settings.dart';
 import 'package:course_guide/screens/welcomeScreen.dart';
@@ -19,6 +21,7 @@ class Pages {
     GetPage(name: '/editProfilePage', page: () => EditProfile(), binding: EditProfileBinding()),
     GetPage(name: '/settings', page: () =>  SettingsPage(), binding: SettingBinding()),
     GetPage(name: '/preferences', page: () =>  PreferencesPage(), binding: PreferencesBinding()),
-
+    GetPage(name: '/ForgotPassword', page: () =>  ForgotPassword(),fullscreenDialog: true),
+    GetPage(name: '/CourseDetailsPage', page: () =>  CourseDetailPage(),fullscreenDialog: true),
   ];
 }

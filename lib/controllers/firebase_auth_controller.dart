@@ -63,6 +63,61 @@ class FirebaseAuthController extends GetxController {
       }
     });
   }
+  Future<List<String>> getSavedCourses() async {
+    try {
+      final user = _auth.currentUser;
+
+      if (user == null) {
+        return [];
+      }
+
+      final snapshot = await _firestore
+          .collection('savedCourses')
+          .where('userId', isEqualTo: user.uid)
+          .get();
+
+      final savedCourses = snapshot.docs.map((doc) => doc['courseURL'] as String).toList();
+      return savedCourses;
+    } catch (e) {
+      print('Error fetching saved courses: $e');
+      return [];
+    }
+  }
+
+  Future<void> saveCourse(String courseTitle, String courseSummary, String courseURL) async {
+    try {
+      final user = _auth.currentUser;
+
+      if (user == null) {
+        print('User not logged in');
+        showToast('Error', 'You need to be logged in to save a course', err: true);
+        return;
+      }
+
+      // Check if the course URL already exists in the saved courses list
+      final savedCourses = await getSavedCourses();
+      if (savedCourses.contains(courseURL)) {
+        // Course already saved
+        showToast('Info', 'Course already saved');
+        return;
+      }
+
+      // Save the course to Firestore
+      await _firestore.collection('savedCourses').add({
+        'userId': user.uid,
+        'courseTitle': courseTitle,
+        'courseSummary': courseSummary,
+        'courseURL': courseURL,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      print('Course saved to Firestore');
+      showToast('Success', 'Course saved successfully');
+    } catch (e) {
+      print('Error saving course: $e');
+      showToast('Error', 'Failed to save course', err: true);
+    }
+  }
 
   Future<void> signupWithEmailPassword(BuildContext context) async {
     if (!signupFormKey.currentState!.validate()) {
@@ -408,6 +463,7 @@ class FirebaseAuthController extends GetxController {
       return null;
     }
   }
+
 
 
   // //sign in with Facebook

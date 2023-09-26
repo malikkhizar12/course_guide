@@ -7,10 +7,9 @@ import '../core/widgets/custom_drawer.dart';
 
 class DashBoard extends StatelessWidget {
   DashBoard({Key? key}) : super(key: key);
-  final CustomDrawerController drawerController =
-  Get.put(CustomDrawerController());
-  final SettingDrawerController settingDrawerController =
-  Get.put(SettingDrawerController());
+  final CustomDrawerController drawerController = Get.put(CustomDrawerController());
+  // final SettingDrawerController settingDrawerController =
+  // Get.put(SettingDrawerController());
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 

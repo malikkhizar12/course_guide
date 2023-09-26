@@ -43,7 +43,7 @@ class SignupPage extends StatelessWidget {
                           controller: controller.nameController,
                           decoration: const InputDecoration(
                             errorStyle: TextStyle(height: 0.1, fontSize: 8),
-                            errorMaxLines: 2,
+                            errorMaxLines: 1,
                             prefixIcon: Icon(Icons.person_outline_rounded),
                             labelText: "Name",
                             hintText: "Enter Your Full name",
