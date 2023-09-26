@@ -10,6 +10,8 @@ class SplashController extends GetxController
   void onInit() async
   {
     super.onInit();
+    // final controller = Get.find<FirebaseAuthController>();
+    // await controller.signOut();
     await Future.delayed(const Duration(seconds: 6), ()
     {
       String uid = firebaseUserId();
